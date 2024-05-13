@@ -1,6 +1,5 @@
 #include <iostream>
 using namespace std;
-
 const int hashSize = 26;
 void menu() {
     cout << "(0) shutdown program" << endl;
@@ -105,7 +104,6 @@ struct HashSet {
         return arr;
     }
 };
-
 int main() {
     HashSet hashset;
     int switch_on;
