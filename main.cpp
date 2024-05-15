@@ -29,15 +29,18 @@ struct HashSet {
     void add(string line) {
         int index = hashFunc(line);
         Node* current = table[index];
-        size++;
         if (current == nullptr) {
             table[index] = new Node{ line };
+            size++;
             return;
         }
+        if (current->data == line) return;
         while (current->next != nullptr) {
+            if (current->next->data == line) return;
             current = current->next;
         }
         current->next = new Node{ line };
+        size++;
     }
     void remove(string line) {
         int index = hashFunc(line);
