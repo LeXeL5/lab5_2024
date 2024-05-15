@@ -24,11 +24,7 @@ struct HashSet {
         }
     }
     int hashFunc(string line) {
-        int hash = 0;
-        for (char c : line) {
-            hash += c;
-        }
-        return hash % hashSize;
+        return abs((int)line[0]) % hashSize;
     }
     void add(string line) {
         int index = hashFunc(line);
@@ -54,7 +50,7 @@ struct HashSet {
             return;
         }
         while (current->next != nullptr) {
-            if (current->next->data != line) {
+            if (current->next->data == line) {
                 Node* temp = current->next->next;
                 delete current->next;
                 current->next = temp;
